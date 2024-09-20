@@ -1,6 +1,14 @@
 package samiwogDev.example.JobSphere.job;
 
+import jakarta.persistence.*;
+
+import javax.annotation.processing.Generated;
+
+@Entity
+//@Table(name="job_table") //optional for renaming the default(job) entity table name
 public class Job {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //Auto generate table id
     private Long id;
     private String title;
     private String description;
@@ -8,6 +16,9 @@ public class Job {
     private int maxSalary;
     private String location;
 
+    public Job(){
+
+    }
     public Job(Long id, String title, String description, int minSalary, int maxSalary, String location) {
         this.id = id;
         this.title = title;
